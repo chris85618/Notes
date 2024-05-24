@@ -1,9 +1,9 @@
 <!--Hackmd theme-->
-{%hackmd theme-dark %}
+<!-- {%hackmd theme-dark %} -->
 
 # 密碼學筆記
 
-[TOC]
+<!-- [TOC] -->
 
 ## Introduction
 
