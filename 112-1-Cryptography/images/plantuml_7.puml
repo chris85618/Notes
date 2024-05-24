@@ -1,0 +1,8 @@
+@startuml
+"result" -> Distinguisher: w (BTW, it's doesn't matter for what "w" is.)
+"Distinguisher" -> "Distinguisher": b←{0,1}
+Distinguisher <- Adversary: m0, m1
+Distinguisher -> Adversary: C=w⊕M_b
+Distinguisher <- Adversary: b'
+Distinguisher -> "result": if b'=b, output b=1
+@enduml

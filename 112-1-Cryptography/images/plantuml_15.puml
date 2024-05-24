@@ -1,0 +1,4 @@
+@startuml
+(oracle) <- (D): req
+(oracle) -> (D): x, g(x)
+@enduml

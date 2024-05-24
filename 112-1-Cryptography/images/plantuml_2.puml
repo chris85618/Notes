@@ -1,0 +1,6 @@
+@startuml
+Alice --> Alice: gen(λ)->k
+Alice --> Alice: enc(k,m)->C
+Alice --> Bob: C
+Bob --> Bob: dec(k,c)->m
+@enduml

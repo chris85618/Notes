@@ -1,0 +1,4 @@
+@startuml
+(Distinguisher) -> (PRG): n
+(PRG) -> (Distinguisher): PRG(n)
+@enduml

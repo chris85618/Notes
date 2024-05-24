@@ -1,0 +1,11 @@
+@startuml
+actor "input"
+actor "output"
+package "A_{SIS}" {
+    actor "A"
+    input --> A_sis: A
+    A_sis -> A: S=A
+    A_sis <- A: x,x'
+    output <- A_sis: z=(x-x')
+}
+@enduml

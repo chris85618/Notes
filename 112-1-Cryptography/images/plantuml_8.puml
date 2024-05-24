@@ -1,0 +1,4 @@
+@startuml
+(A) -> (g): n
+(g) -> (A): g(n)
+@enduml

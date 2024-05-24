@@ -1,0 +1,7 @@
+@startuml
+database "H-list"
+(A) -> (H): x
+(H) -> (H-list): query x
+(H) <--(H-list): y, generate a new one if y doesn't exist and then store <x,y>
+(A) <- (H): y
+@enduml

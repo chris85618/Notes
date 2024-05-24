@@ -1,0 +1,4 @@
+@startuml
+(*) --> "Caesar cipher"
+"Caesar cipher" --> [Is a] "Shift Cipher"
+@enduml

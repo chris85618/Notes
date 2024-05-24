@@ -1,0 +1,8 @@
+@startuml
+actor signer
+actor verifier
+signer -> signer : Gen(1^n)->(sk=signature_key, vk=verify_key)
+signer -> verify : vk
+signer -> verify : sign(sk, m)->σ
+verify -> verify : verify(vk, σ)
+@enduml

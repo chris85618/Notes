@@ -1,0 +1,10 @@
+@startuml
+Distinguisher <- Adversary: m_i
+Distinguisher -> Distinguisher: Generate r uniformly
+"G (Pseudo Random Function)" <- Distinguisher: random r_i
+"G (Pseudo Random Function)" -> Distinguisher: G(r)
+Distinguisher -> Distinguisher: C_i=r OR (G(r) ⊕ m_i)
+Distinguisher -> Adversary: C_i
+Distinguisher <- Adversary: m_i'
+Distinguisher -> "result": if m_i'=m_i, output b=1
+@enduml

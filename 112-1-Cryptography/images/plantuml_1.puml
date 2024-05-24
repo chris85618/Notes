@@ -1,0 +1,6 @@
+@startuml
+(*) --> program
+input -> program
+key -> program
+-> output
+@enduml

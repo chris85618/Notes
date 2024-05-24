@@ -1,0 +1,5 @@
+@startuml
+Alice -> Bob: random a belongs to Zg* (secret) -> g^a
+Bob -> Bob: random b in Zg*
+Alice <- Bob: g^b (output the (key ((g^a)^b) or ((g^b)^a) = g^(ab)) )
+@enduml

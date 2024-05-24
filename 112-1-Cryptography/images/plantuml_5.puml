@@ -1,0 +1,7 @@
+@startuml
+actor Challenger
+actor Adversary
+
+Adversary --> Challenger: m0, m1
+Adversary <-- Challenger: c
+@enduml

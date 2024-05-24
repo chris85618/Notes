@@ -1,0 +1,5 @@
+@startuml
+(A) --> (T): m=m1||m2||...||ml
+(T) --> (A): t=t1||t2||...||tl
+(A) --> (Result): m*,t*，其中m*=m2||m1||...||ml，t*=t2||t1||...||tl
+@enduml

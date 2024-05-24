@@ -1,0 +1,5 @@
+@startuml
+C <- A: m
+C -> A: t
+A -> A: Store pair <m, t> into a database
+@enduml

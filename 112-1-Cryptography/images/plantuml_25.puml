@@ -1,0 +1,9 @@
+@startuml
+participant result
+participant C
+participant A
+C -> C: Gen(l^n)->s
+C -> A: S
+C <-- A: x,x'
+result <-- C: output x, x'
+@enduml

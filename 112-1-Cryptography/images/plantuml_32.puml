@@ -1,0 +1,23 @@
+@startuml
+participant result
+actor challenger
+actor adversary
+entity "signature oracle"
+database "<m,σ>"
+
+challenger -> adversary : vk
+
+challenger <-- adversary : m1,m2
+
+challenger -> challenger : choose random b in {0,1}
+
+challenger -> adversary : sign(sk, m_b)->σ
+
+adversary -> "signature oracle" : m
+adversary <-- "signature oracle" : σ
+
+adversary -> "<m,σ>" : <m,σ>
+
+challenger <-- adversary : b'
+result <-- challenger : 1 iff b'=b
+@enduml

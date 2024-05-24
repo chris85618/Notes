@@ -1,0 +1,6 @@
+@startuml
+(*) --> "assumption"
+--> [is used to design] "construction"
+
+"some very hard problem which hasn't any efficient solution" --> [can be an] "assumption"
+@enduml

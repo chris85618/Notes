@@ -1,0 +1,15 @@
+@startuml
+actor "G"
+actor "output"
+package "D" {
+    actor "A"
+    D <-- A: mi
+    D ---> A: ti
+    A -> Distinguisher: (m*, t*)
+    G <- Distinguisher: m*
+    G --> Distinguisher: G(m*)
+    Distinguisher --> output: iff G(m*)=t*, output β=1
+}
+G <- D: m
+G --> D: G(m)
+@enduml

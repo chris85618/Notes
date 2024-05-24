@@ -1,0 +1,7 @@
+@startuml
+actor "A"
+database "database" {
+    [<m, t>]
+}
+A --> database: store <m,t>
+@enduml

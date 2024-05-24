@@ -1,0 +1,5 @@
+@startuml
+(Distinguisher) -> (g): n
+(g) -> (Distinguisher): g(n)
+(Distinguisher) -> (output) : β∈{0,1}
+@enduml

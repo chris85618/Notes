@@ -1,0 +1,4 @@
+@startuml
+(*) --> "Hash Functions"
+--> [output] "a pair of PPT algorithms, (Gen H), (with length l(n) )"
+@enduml

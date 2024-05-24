@@ -1,0 +1,3 @@
+@startuml
+(Mallory) -> (Bob): (m*, t*)
+@enduml

@@ -47,14 +47,7 @@
 2. [Kerckoff's Principle](https://zh.wikipedia.org/zh-tw/柯克霍夫原則)
         1. Security only relies on ++the secret of **key**++.
         2. The method must not be required **secret**.
-   ```plantuml
-   @startuml
-   (*) --> program
-   input -> program
-   key -> program
-   -> output
-   @enduml
-   ```
+   ![](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/chris85618/Notes/main/112-1-Cryptography/images/plantuml_1.puml)
 3. Principle of modren crypto
     1. Formal Definition
         1. System Framework
@@ -73,14 +66,7 @@
         2. encryption
         3. decryption
     * Flow
-      ```plantuml
-      @startuml
-      Alice --> Alice: gen(λ)->k
-      Alice --> Alice: enc(k,m)->C
-      Alice --> Bob: C
-      Bob --> Bob: dec(k,c)->m
-      @enduml
-      ```
+      ![](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/chris85618/Notes/main/112-1-Cryptography/images/plantuml_2.puml)
         1. $Gen(λ) \rightarrow k$
         2. $Enc(k,m) \rightarrow c$
         3. $Dec(k,c) := m$
@@ -98,12 +84,7 @@
 
 ### Construction
 
-```plantuml
-@startuml
-(*) --> "Caesar cipher"
-"Caesar cipher" --> [Is a] "Shift Cipher"
-@enduml
-```
+![](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/chris85618/Notes/main/112-1-Cryptography/images/plantuml_3.puml)
 
 1. Space
     1. key space
@@ -177,14 +158,7 @@
 
 ### Perfect Secrecy Definitions
 
-```plantuml
-@startuml
-(*) --> "assumption"
---> [is used to design] "construction"
-
-"some very hard problem which hasn't any efficient solution" --> [can be an] "assumption"
-@enduml
-```
+![](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/chris85618/Notes/main/112-1-Cryptography/images/plantuml_4.puml)
 
 * 符合3個裡面任何一個3個definition $\Rightarrow$ 3個definitions都符合
 
@@ -195,15 +169,7 @@
 3. PS3 ([Perfect secrecy](https://zh.wikipedia.org/zh-tw/完善保密性) definition 3):
    Consider the challenger
 
-   ```plantuml
-   @startuml
-   actor Challenger
-   actor Adversary
-
-   Adversary --> Challenger: m0, m1
-   Adversary <-- Challenger: c
-   @enduml
-   ```
+   ![](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/chris85618/Notes/main/112-1-Cryptography/images/plantuml_5.puml)
     * $b \in \{0, 1\}$
     * $c \leftarrow Enc(k, m_b)$
     * $b' \leftarrow \{0, 1\}$
@@ -278,12 +244,7 @@
         * Pr[A can't wins] = 1
 * Modification version of PS3 ([Perfect secrecy](https://zh.wikipedia.org/zh-tw/完善保密性) definition 3):
 
-   ```plantuml
-   @startuml
-   Adversaries --> Challenger: m0, m1
-   Adversaries <-- Challenger: c
-   @enduml
-   ```
+   ![](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/chris85618/Notes/main/112-1-Cryptography/images/plantuml_6.puml)
     * $b \in \{0, 1\}$
     * $c \leftarrow Enc(k, m_b)$
     * $b' \leftarrow \{0, 1\}$
@@ -345,16 +306,7 @@
 
 ##### System Framework
 
-```plantuml
-@startuml
-"result" -> Distinguisher: w (BTW, it's doesn't matter for what "w" is.)
-"Distinguisher" -> "Distinguisher": b←{0,1}
-Distinguisher <- Adversary: m0, m1
-Distinguisher -> Adversary: C=w⊕M_b
-Distinguisher <- Adversary: b'
-Distinguisher -> "result": if b'=b, output b=1
-@enduml
-```
+![](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/chris85618/Notes/main/112-1-Cryptography/images/plantuml_7.puml)
 
 ##### Security Definition
 
@@ -409,29 +361,13 @@ Distinguisher -> "result": if b'=b, output b=1
 * f: ${\{0,1\}}^n\times{\{0,1\}}^n\rightarrow{\{0,1\}}^n$
       $keyed$
 * $Pr[A^{f_k(w)}]$
-  ```plantuml
-  @startuml
-  (A) -> (g): n
-  (g) -> (A): g(n)
-  @enduml
-  ```
+  ![](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/chris85618/Notes/main/112-1-Cryptography/images/plantuml_8.puml)
 * $\Rightarrow Pr[{Distinguisher}^{f_k}(n)=1]$
 
-  ```plantuml
-  @startuml
-  (Distinguisher) -> (g): n
-  (g) -> (Distinguisher): g(n)
-  (Distinguisher) -> (output) : β∈{0,1}
-  @enduml
-  ```
+  ![](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/chris85618/Notes/main/112-1-Cryptography/images/plantuml_9.puml)
 * $\Rightarrow Pr[{Distinguisher}^{PRG}(n)=1]$
 
-  ```plantuml
-  @startuml
-  (Distinguisher) -> (PRG): n
-  (PRG) -> (Distinguisher): PRG(n)
-  @enduml
-  ```
+  ![](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/chris85618/Notes/main/112-1-Cryptography/images/plantuml_10.puml)
 * $Pr[D^{F_k(.)}(n)=1]-Pr[D^{f(.)}(n)=1]\leq {negl}(n)$
   其中$k \in \{0,1\}$
   $f \leftarrow Func_{n \times n}$
@@ -444,23 +380,13 @@ Distinguisher -> "result": if b'=b, output b=1
 
 ###### Encryption Query
 
-```plantuml
-@startuml
-Adversary -> Challenger : m_i
-Adversary <- Challenger : c_i
-@enduml
-```
+![](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/chris85618/Notes/main/112-1-Cryptography/images/plantuml_11.puml)
 
 ###### Challenger
 
 * Previous pattern
 
-```plantuml
-@startuml
-Adversary -> Challenger : m_0*,m_1*
-Adversary <- Challenger : c_b*
-@enduml
-```
+![](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/chris85618/Notes/main/112-1-Cryptography/images/plantuml_12.puml)
 
 ##### Security Definition
 
@@ -487,32 +413,9 @@ Adversary <- Challenger : c_b*
 ![](https://hackmd.io/_uploads/BJS-d98-6.png)
 
 * Red Part: Encryption Query
-  ```plantuml
-  @startuml
-  Distinguisher <- Adversary: m_i
-  Distinguisher -> Distinguisher: Generate r uniformly
-  "G (Pseudo Random Function)" <- Distinguisher: random r_i
-  "G (Pseudo Random Function)" -> Distinguisher: G(r)
-  Distinguisher -> Distinguisher: C_i=r OR (G(r) ⊕ m_i)
-  Distinguisher -> Adversary: C_i
-  Distinguisher <- Adversary: m_i'
-  Distinguisher -> "result": if m_i'=m_i, output b=1
-  @enduml
-  ```
+  ![](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/chris85618/Notes/main/112-1-Cryptography/images/plantuml_13.puml)
 * Orange Part: Challenge Part
-  ```plantuml
-  @startuml
-  Distinguisher <- Adversary: m0*, m1*
-  Distinguisher -> Distinguisher: Generate b uniformly
-  Distinguisher -> Distinguisher: Generate r uniformly
-  "G (Pseudo Random Function)" <- Distinguisher: random r_i
-  "G (Pseudo Random Function)" -> Distinguisher: G(r)
-  Distinguisher -> Distinguisher: C_i=r OR (G(r) ⊕ m_i)
-  Distinguisher -> Adversary: C_b
-  Distinguisher <- Adversary: b'
-  Distinguisher -> "result": if m_i'=m_i, output b=1
-  @enduml
-  ```
+  ![](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/chris85618/Notes/main/112-1-Cryptography/images/plantuml_14.puml)
 * Prove that iff F is pseudo random function, $\pi$ is [CPA](https://zh.wikipedia.org/wiki/%E9%80%89%E6%8B%A9%E6%98%8E%E6%96%87%E6%94%BB%E5%87%BB)-secure.
     * F: PRF
       $\pi$: [CPA](https://zh.wikipedia.org/wiki/%E9%80%89%E6%8B%A9%E6%98%8E%E6%96%87%E6%94%BB%E5%87%BB)-secure
@@ -561,12 +464,7 @@ Adversary <- Challenger : c_b*
 ### Consider a weak version of PRF
 
 * D only send requestment to oracle, and oracle will return everything back including inputs and outputs.
-  ```plantuml
-  @startuml
-  (oracle) <- (D): req
-  (oracle) -> (D): x, g(x)
-  @enduml
-  ```
+  ![](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/chris85618/Notes/main/112-1-Cryptography/images/plantuml_15.puml)
 * $|Pr[D^{F_{k}^{＄}}(n)=1]-Pr[D^{f^{m}(n)=1}]| \leq negl(n)$
 * Thm: If F is weak-PRF, $\pi$ is CPA-secure.
 
@@ -601,69 +499,27 @@ Adversary <- Challenger : c_b*
 * [Message Authentication Code (MAC)](https://zh.wikipedia.org/wiki/%E8%A8%8A%E6%81%AF%E9%91%91%E5%88%A5%E7%A2%BC)
     * To authenticate identity.
 
-* ```plantuml
-  @startuml
-  (Alice) -> (Bob): m, t
-  @enduml
-  ```
+* ![](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/chris85618/Notes/main/112-1-Cryptography/images/plantuml_16.puml)
 * Mallory listens what Alice send
 * Mallory trys to [forge(偽造)](https://dictionary.cambridge.org/zht/詞典/英語-漢語-繁體/forge) a fake message queue $(m^*, t^*)$ to Bob
-  ```plantuml
-  @startuml
-  (Mallory) -> (Bob): (m*, t*)
-  @enduml
-  ```
+  ![](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/chris85618/Notes/main/112-1-Cryptography/images/plantuml_17.puml)
 
 #### Formal Definition
 
 ##### System Framework
 
-```plantuml
-@startuml
-actor "G"
-actor "output"
-package "D" {
-    actor "A"
-    D <-- A: mi
-    D ---> A: ti
-    A -> Distinguisher: (m*, t*)
-    G <- Distinguisher: m*
-    G --> Distinguisher: G(m*)
-    Distinguisher --> output: iff G(m*)=t*, output β=1
-}
-G <- D: m
-G --> D: G(m)
-@enduml
-```
+![](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/chris85618/Notes/main/112-1-Cryptography/images/plantuml_18.puml)
 
 ##### Security Definition
 
 1. 目標: get the tag
    Mac Query Phase
-
-   ```plantuml
-   @startuml
-   C <- A: m
-   C -> A: t
-   A -> A: Store pair <m, t> into a database
-   @enduml
-   ```
-
-   ```plantuml
-   @startuml
-    actor "A"
-    database "database" {
-      [<m, t>]
-    }
-    A --> database: store <m,t>
-   @enduml
-   ```
+   
+   ![](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/chris85618/Notes/main/112-1-Cryptography/images/plantuml_19.puml)
+   
+   ![](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/chris85618/Notes/main/112-1-Cryptography/images/plantuml_20.puml)
 2. Forgery Phase
-   ```plantuml
-   @startuml
-   C <- A: (m*, t*)
-   @enduml
-   ```
+   ![](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/chris85618/Notes/main/112-1-Cryptography/images/plantuml_21.puml)
 3. A win iff ([forgeable](https://dictionary.cambridge.org/zht/詞典/英語-漢語-繁體/forge))
     1. $Verify(k, m^*, t^*)=1$
         * It means accept.
@@ -744,31 +600,14 @@ G --> D: G(m)
 
 * 把一個n-bit訊息切割成l份，各自透過MAC產生tag
 
-```plantuml
-@startuml
-(*) --> n_1
-(*) --> n_2
-(*) --> n_...
-(*) --> n_l
-n_1 --> [MAC] t_1
-n_2 --> [MAC] t_2
-n_... --> [MAC] t_...
-n_l --> [MAC] t_l
-@enduml
-```
+![](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/chris85618/Notes/main/112-1-Cryptography/images/plantuml_22.puml)
 
 * Is it secure? No，切成l份後就能透過[前面example提到的方法](#Exercise)一一取得每一段message & tag的對應關係
   (TODO: 實際原因待查證確認、更新)
 * ~~雖然可以交換順序(e.g. $t_1$ & $t_2$ 換順序，但是這個做法只要簡單比對內容即可)~~
     * ~~可能可參照前面Perfect Secrecy與凱薩加密的內容~~ 此notion與前面的無關
 
-```plantuml
-@startuml
-(A) --> (T): m=m1||m2||...||ml
-(T) --> (A): t=t1||t2||...||tl
-(A) --> (Result): m*,t*，其中m*=m2||m1||...||ml，t*=t2||t1||...||tl
-@enduml
-```
+![](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/chris85618/Notes/main/112-1-Cryptography/images/plantuml_23.puml)
 * $m^*,t^*$的內容($m_1$ & $m_2$ 、還有 $t_1$ & $t_2$ )有交換位置，$m^*=m_2||m_1||...||m_l$  $t^*=t_2||t_1||...||t_l$ 
 
 ### CBC-MAC
@@ -821,12 +660,7 @@ $\overline{t}=(t_1,t_2,...,t_l)$ is secure?
 
 ### Hash functions
 
-```plantuml
-@startuml
-(*) --> "Hash Functions"
---> [output] "a pair of PPT algorithms, (Gen H), (with length l(n) )"
-@enduml
-```
+![](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/chris85618/Notes/main/112-1-Cryptography/images/plantuml_24.puml)
 
 * A hash funciton (with length $l(n)$) is a pair of PPT algothms, (Gen H)
     * Gen: takes a security param $l^n and outputs a key $s$
@@ -840,17 +674,7 @@ $\overline{t}=(t_1,t_2,...,t_l)$ is secure?
 
 ##### System Framework
 
-```plantuml
-@startuml
-participant result
-participant C
-participant A
-C -> C: Gen(l^n)->s
-C -> A: S
-C <-- A: x,x'
-result <-- C: output x, x'
-@enduml
-```
+![](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/chris85618/Notes/main/112-1-Cryptography/images/plantuml_25.puml)
 
 ###### Hash Collision
 
@@ -892,19 +716,7 @@ result <-- C: output x, x'
 * $f_{\overrightarrow{A}}A(x)=\overrightarrow{A}_x$
     * $\overrightarrow{A} \in {\{0,1\}^m}$
 
-```plantuml
-@startuml
-actor "input"
-actor "output"
-package "A_{SIS}" {
-    actor "A"
-    input --> A_sis: A
-    A_sis -> A: S=A
-    A_sis <- A: x,x'
-    output <- A_sis: z=(x-x')
-}
-@enduml
-```
+![](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/chris85618/Notes/main/112-1-Cryptography/images/plantuml_26.puml)
 
 * $z \in {\{0,\pm 1\}}^m$
 * $\overrightarrow{x} \neq \overrightarrow{x'}$
@@ -927,33 +739,13 @@ package "A_{SIS}" {
 ![圖片](https://hackmd.io/_uploads/B1NTXEsXT.png)
 
 
-```plantuml
-@startuml
-Alice -> Alice: h=H(x)
-Alice -> Bob: x,h
-Bob -> Bob: check H(x)=?h
-
-alt 橘色情況
-Alice -> Bob: x1,x2,x3,x4,h1,h2,h3,h4
-else 紅色情況
-Alice -> Bob: x1,x2,x3,x4,h*=H(x1,x2,x3,x4)
-end
-@enduml
-```
+![](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/chris85618/Notes/main/112-1-Cryptography/images/plantuml_27.puml)
 
 Proof Path=$log_2(n) \forall$ n elements x.
 
 ### Hash as Random Oracle
 
-```plantuml
-@startuml
-database "H-list"
-(A) -> (H): x
-(H) -> (H-list): query x
-(H) <--(H-list): y, generate a new one if y doesn't exist and then store <x,y>
-(A) <- (H): y
-@enduml
-```
+![](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/chris85618/Notes/main/112-1-Cryptography/images/plantuml_28.puml)
 
 * If x is not in H-list, H-oracle will uniformly choose y and store <x,y>
 * output y+C (y is uniform)
@@ -964,13 +756,7 @@ database "H-list"
 
 #### Example: Key Exchange (Diffie-Hellman)
 
-```plantuml
-@startuml
-Alice -> Bob: random a belongs to Zg* (secret) -> g^a
-Bob -> Bob: random b in Zg*
-Alice <- Bob: g^b (output the (key ((g^a)^b) or ((g^b)^a) = g^(ab)) )
-@enduml
-```
+![](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/chris85618/Notes/main/112-1-Cryptography/images/plantuml_29.puml)
 
 ### Decisional Diffie-Hellman (DDH)
 
@@ -984,11 +770,7 @@ Alice <- Bob: g^b (output the (key ((g^a)^b) or ((g^b)^a) = g^(ab)) )
 
 ##### System Framework
 
-```plantuml
-@startuml
-package A_DDH
-@enduml
-```
+![](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/chris85618/Notes/main/112-1-Cryptography/images/plantuml_30.puml)
 
 ##### Security Definition
 
@@ -1031,44 +813,11 @@ package A_DDH
 
 ##### System Framework
 
-```plantuml
-@startuml
-actor signer
-actor verifier
-signer -> signer : Gen(1^n)->(sk=signature_key, vk=verify_key)
-signer -> verify : vk
-signer -> verify : sign(sk, m)->σ
-verify -> verify : verify(vk, σ)
-@enduml
-```
+![](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/chris85618/Notes/main/112-1-Cryptography/images/plantuml_31.puml)
 
 ##### Security Definition
 
-```plantuml
-@startuml
-participant result
-actor challenger
-actor adversary
-entity "signature oracle"
-database "<m,σ>"
-
-challenger -> adversary : vk
-
-challenger <-- adversary : m1,m2
-
-challenger -> challenger : choose random b in {0,1}
-
-challenger -> adversary : sign(sk, m_b)->σ
-
-adversary -> "signature oracle" : m
-adversary <-- "signature oracle" : σ
-
-adversary -> "<m,σ>" : <m,σ>
-
-challenger <-- adversary : b'
-result <-- challenger : 1 iff b'=b
-@enduml
-```
+![](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/chris85618/Notes/main/112-1-Cryptography/images/plantuml_32.puml)
 
 1. $Verify(vk,m^*,\sigma^*)=1$
 2. $m^* \notin Q$

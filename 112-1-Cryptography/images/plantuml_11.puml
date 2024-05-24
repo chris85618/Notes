@@ -1,0 +1,4 @@
+@startuml
+Adversary -> Challenger : m_i
+Adversary <- Challenger : c_i
+@enduml
