@@ -410,7 +410,7 @@
 
 #### Security Proof
 
-![](https://hackmd.io/_uploads/BJS-d98-6.png)
+![](./images/BJS-d98-6.png)
 
 * Red Part: Encryption Query
   ![](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/chris85618/Notes/main/112-1-Cryptography/images/plantuml_13.puml)
@@ -619,7 +619,7 @@
 
 ##### System Framework
 
-![CBC-MAC.png](https://hackmd.io/_uploads/Sk9Oxdf76.png)
+![CBC-MAC.png](./images/Sk9Oxdf76.png)
 
 ##### Security Definition
 
@@ -727,7 +727,7 @@ $\overline{t}=(t_1,t_2,...,t_l)$ is secure?
 ##### Merkle–Damgård transformation
 
 * Wiki: [Merkle–Damgård construction](https://en.wikipedia.org/wiki/Merkle%E2%80%93Damg%C3%A5rd_construction)
-* ![](https://upload.wikimedia.org/wikipedia/commons/e/e4/WidePipeHashFunction.png)
+* ![](./images/WidePipeHashFunction.png)
 
 #### Security Proof
 
@@ -736,7 +736,7 @@ $\overline{t}=(t_1,t_2,...,t_l)$ is secure?
 
 ### Merkel Tree
 
-![圖片](https://hackmd.io/_uploads/B1NTXEsXT.png)
+![圖片](./images/B1NTXEsXT.png)
 
 
 ![](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/chris85618/Notes/main/112-1-Cryptography/images/plantuml_27.puml)
