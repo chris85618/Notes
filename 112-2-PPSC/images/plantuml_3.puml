@@ -1,0 +1,20 @@
+@startuml
+left to right direction
+rectangle "input space" {
+   usecase "a"
+   usecase "b"
+   usecase "c=aⒶb"
+}
+rectangle "output space" {
+   usecase "[a]"
+   usecase "[b]"
+   usecase "[c]=[a]Ⓑ[b]"
+}
+a --> "[a]" : E
+"[a]" ..> a : D
+b --> "[b]" : E
+"[b]" ..> b : D
+c --> "[c]" : A*
+"c=aⒶb" --> "[c]=[a]Ⓑ[b]" : E
+"[c]=[a]Ⓑ[b]" ..> "c=aⒶb" : D
+@enduml

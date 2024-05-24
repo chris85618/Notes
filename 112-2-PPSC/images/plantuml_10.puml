@@ -1,0 +1,5 @@
+@startuml
+(U) -> (C): query
+database "data set" as dataset
+(C) -- dataset
+@enduml

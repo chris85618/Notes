@@ -1,0 +1,4 @@
+@startuml
+(*) --> "data"
+"data" --> [function/algorithm] "data structure"
+@enduml

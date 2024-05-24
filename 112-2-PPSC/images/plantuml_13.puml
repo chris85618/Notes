@@ -1,0 +1,6 @@
+@startuml
+you -> (Cloud): ~C
+you -> (Cloud): ~x
+(Cloud) -> (Cloud) : Eval(~C, ~x)=C(x)
+you --> buyer : C
+@enduml

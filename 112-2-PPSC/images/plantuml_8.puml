@@ -1,0 +1,10 @@
+@startuml
+actor User
+User -> Cloud: [q]=Enc(q)
+Cloud -> Cloud : [Z]=[2^b+(q-d)]=[2^b]⊕[q]⊖[d]
+Cloud -> Cloud: choose a random r
+Cloud -> User: [Z']=[Z+r]
+User -> User: Dec([y])
+User -> Cloud: [Z'']=[Z' mod 2^b]
+User <- Cloud: [(Z mod 2^b) 2^b]=[Z]⊖([Z'']⊖[r_L])
+@enduml

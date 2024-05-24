@@ -1,0 +1,4 @@
+@startuml
+User -> "kNN model": query
+User <-- "kNN model": label
+@enduml

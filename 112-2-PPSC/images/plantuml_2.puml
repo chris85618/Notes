@@ -1,0 +1,5 @@
+@startuml
+(*) --> "Using cloud computation"
+--> [lead to] "the cloud services know users' (clients') information"
+--> [needs trying to] "preserve users' privacy"
+@enduml

@@ -1,0 +1,6 @@
+@startuml
+(v) -> (v): sk
+(v) --> (Cloud): Enc(d)
+(Cloud) -> (Cloud): pk, Enc(q)
+(v) <- (Cloud): Enc(SC)
+@enduml

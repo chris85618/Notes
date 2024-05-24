@@ -1,0 +1,6 @@
+@startuml
+User <- Cloud: [d], where d ∈ Zp
+User -> User: choose r, r' ∈ Zp, where 2lr+r'≤|Zp|=p, and l > g, d
+User -> Cloud: [s=Zr+r'], [h=lr+r']
+Cloud -> Cloud: if s > h, then q > d
+@enduml

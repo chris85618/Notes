@@ -1,0 +1,4 @@
+@startuml
+(*) --> algorithm
+--> [拆解] operation
+@enduml

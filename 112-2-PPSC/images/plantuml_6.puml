@@ -1,0 +1,7 @@
+@startuml
+actor m
+' actor cloud
+m -> cloud: Enc(m)
+cloud -> cloud : Eval f
+m <. cloud: Enc(f(m))
+@enduml

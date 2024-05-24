@@ -1,0 +1,4 @@
+@startuml
+left to right direction
+(ideas to use Additive Secret Key) --> (Public key encryption): build
+@enduml

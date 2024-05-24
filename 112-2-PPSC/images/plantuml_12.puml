@@ -1,0 +1,5 @@
+@startuml
+U -> U: 1. ∀i, SecureComp(qi, di^(j))
+U -> U: 2. ∀i, [∆i]=[qi] ⊖ [di^(j)] if SC(qi, di^(j))=1 or [∆i]=[di^(j)] ⊖ [qi] if not
+U -> U: 3. [∆^(j)]=⊕ from 1 to n [∆i]
+@enduml
